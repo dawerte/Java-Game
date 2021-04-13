@@ -1,0 +1,5 @@
+Block_size: 2
+Number_of_Balls: 2
+Player_Speed: 3
+Max_velocity: 5
+Delay: 6

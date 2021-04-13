@@ -1,0 +1,7 @@
+Level_Number: 1
+Ball_VelocityX: 1
+Ball_VelocityX: 1
+Player_Velocity: 1
+Bullet_Velocity: 3
+Map_Size: 30
+Map_Data: 2
