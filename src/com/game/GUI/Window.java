@@ -1,4 +1,6 @@
 package com.game.GUI;
+import Game.KeyChecker;
+
 import javax.swing.JFrame;
 
 /**
