@@ -17,18 +17,18 @@ public class Bullet {
     Rectangle hitBox;
 
 
-    public Bullet(int x, int y, int width, int height, GamePanel panel){
+    public Bullet(int x, int y, GamePanel panel){
         this.panel = panel;
         this.x=x;
         this.y=y;
-        this.height=height;
-        this.width=width;
+        this.height= panel.getBullet_height();
+        this.width=panel.getBullet_width();
 
         hitBox = new Rectangle(x,y,width,height);
 
     }
     public void set(){
-        yspeed =-10;
+        yspeed = panel.getBullet_VelocityY();
 
         y +=yspeed;
       

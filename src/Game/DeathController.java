@@ -20,8 +20,6 @@ public class DeathController {
             tempball = ball.getBall().get(i);
            tempball.hitBox.x -= tempball.getXspeed();
           tempball.hitBox.y -= tempball.getYspeed();
-         //   player.hitBox.x -= player.getXspeed();
-         //   player.hitBox.y -= player.getYspeed();
             if(tempball.hitBox.intersects(player.hitBox)){
                 tempball.hitBox.y-=tempball.getYspeed();
                 player.hitBox.y -=player.getYspeed();
@@ -31,6 +29,7 @@ public class DeathController {
                 panel.setRunning(false);
                 JOptionPane.showMessageDialog(null,
                         "You are dead ");
+                System.exit(0);
             }
 
             if(tempball.hitBox.intersects(player.hitBox)){
@@ -42,6 +41,7 @@ public class DeathController {
                 panel.setRunning(false);
                 JOptionPane.showMessageDialog(null,
                         "You are dead ");
+                System.exit(0);
 
             }
             //if (player.hitBox.intersects(tempball.hitBox)) {

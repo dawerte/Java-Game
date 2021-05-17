@@ -21,14 +21,15 @@ public class Player {
     private boolean keyRight;
     private boolean keyUp;
     private boolean keyDown;
+    private int max_speed;
 
     public Player(int x,int y, GamePanel panel){
         this.panel = panel;
         this.x=x;
         this.y=y;
-
-        width=50;
-        height=100;
+        max_speed=panel.getMax_velocity();
+        width=panel.getPLayer_width();
+        height=panel.getPlayer_height();
         hitBox = new Rectangle(x,y,width,height);
 
 
@@ -41,8 +42,8 @@ public class Player {
         if(xspeed>0 && xspeed<0.75) xspeed=0;
         if(xspeed<0 && xspeed>-0.75) xspeed=0;
 
-        if(xspeed>7) xspeed =7;
-        if(xspeed<-7) xspeed=-7;
+        if(xspeed>max_speed) xspeed =max_speed;
+        if(xspeed<max_speed*-1) xspeed=max_speed*-1;
 
         if(keyUp) {
             hitBox.y ++;

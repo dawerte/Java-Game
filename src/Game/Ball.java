@@ -12,7 +12,7 @@ public class Ball {
     private int width;
     private int height;
 
-    private double xspeed=4;
+    private double xspeed;
     private double yspeed;
 
     Rectangle hitBox;
@@ -25,12 +25,13 @@ public class Ball {
         this.height=height;
         this.xspeed=xspeed;
         hitBox = new Rectangle(x, y, width, height);
+        yspeed=panel.getBall_VelocityY();
 
     }
     public void set(){
 
         yspeed+=0.3;
-        if(width<=25 &&height<=25) yspeed+=0.15;
+        if(width<= 25 &&height<=25) yspeed+=0.15;
         //Horizontal Collision
         hitBox.x += xspeed;
         for(Wall wall: panel.getWalls()){
@@ -95,6 +96,14 @@ public class Ball {
 
     public void setYspeed(double yspeed) {
         this.yspeed = yspeed;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 }
 

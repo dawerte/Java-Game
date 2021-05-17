@@ -7,32 +7,16 @@ import java.util.Scanner;
  */
 public class Level {
     private File levelFile;
-    /**
-     * Defines level number
-     */
-    private int levelNumber;
-    /**
-     * Defines ball velocity in axis X
-     */
-    private int ballVelocityX;
-    /**
-     * Defines ball velocity in axis Y
-     */
-    private int ballVelocityY;
-    /**
-     * Defines player Velocity
-     */
-    private int playerVelocity;
-    /**
-     * Defines bullet Velocity
-     */
-    private int bulletVelocity;
-    /**
-     * Defines size of the map
-     */
-    private int mapSize1D;
-    private int mapSize2D;
-    private short[] mapData;
+
+    private int Level_Number;
+    private int Number_of_Balls;
+    private int Ball_VelocityX;
+    private int Ball_VelocityY;
+    private int Player_VelocityX;
+    private int Player_VelocityJump;
+    private int Bullet_VelocityY;
+    private int Ball_Width;
+    private int Ball_Height;
 
     /**
      * Class constructor
@@ -60,53 +44,63 @@ public class Level {
         Scanner scanner = new Scanner(levelFile);
         String temp;
         temp=scanner.next();
-        levelNumber = scanner.nextInt();
+        Level_Number = scanner.nextInt();
         temp= scanner.next();
-        ballVelocityX= scanner.nextInt();
+        Number_of_Balls= scanner.nextInt();
         temp= scanner.next();
-        ballVelocityY= scanner.nextInt();
+        Ball_VelocityX= scanner.nextInt();
         temp= scanner.next();
-        playerVelocity= scanner.nextInt();
+        Ball_VelocityY= scanner.nextInt();
         temp= scanner.next();
-        bulletVelocity= scanner.nextInt();
+        Player_VelocityX= scanner.nextInt();
         temp= scanner.next();
-        mapSize1D= scanner.nextInt();
-        mapSize2D=(int) Math.pow(mapSize1D,2);
-        mapData= new short[mapSize2D];
+        Player_VelocityJump= scanner.nextInt();
+        temp= scanner.next();
+        Bullet_VelocityY= scanner.nextInt();
+        temp= scanner.next();
+        Ball_Width= scanner.nextInt();
+        temp= scanner.next();
+        Ball_Height= scanner.nextInt();
     }
 
     public File getLevelFile() {
         return levelFile;
     }
 
-    public int getLevelNumber() {
-        return levelNumber;
+    public int getBall_VelocityX() {
+        return Ball_VelocityX;
     }
 
-    public int getBallVelocityX() {
-        return ballVelocityX;
+    public int getBall_VelocityY() {
+        return Ball_VelocityY;
     }
 
-    public int getPlayerVelocity() {
-        return playerVelocity;
+    public int getBullet_VelocityY() {
+        return Bullet_VelocityY;
     }
 
-    public int getBulletVelocity() {
-        return bulletVelocity;
+    public int getLevel_Number() {
+        return Level_Number;
     }
 
-    public int getBallVelocityY() {
-        return ballVelocityY;
-    }
-    public int getMapSize1D() {
-        return mapSize1D;
-    }
-    public int getMapSize2D() {
-        return mapSize2D;
+    public int getNumber_of_Balls() {
+        return Number_of_Balls;
     }
 
-    public short[] getMapData() {
-        return mapData;
+    public int getPlayer_VelocityJump() {
+        return Player_VelocityJump;
+    }
+
+    public int getPlayer_VelocityX() {
+        return Player_VelocityX;
+    }
+
+    public int getBall_Height() {
+        return Ball_Height;
+    }
+
+    public int getBall_Width() {
+        return Ball_Width;
     }
 }
 
