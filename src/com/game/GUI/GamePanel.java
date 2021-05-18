@@ -36,6 +36,7 @@ public class GamePanel extends JPanel implements ActionListener {
     private int Wall_width;
     private int Max_velocity;
 
+
     private int Level_Number;
     private int Number_of_Balls;
     private int Ball_VelocityX;
@@ -45,6 +46,13 @@ public class GamePanel extends JPanel implements ActionListener {
     private int Bullet_VelocityY;
     private int Ball_Width;
     private int Ball_Height;
+    private int Walls_X1;
+    private int Walls_X2;
+    private int Walls_Y;
+    private int Walls_maxX;
+    private int Walls_maxY;
+    private int Ball_startX;
+    private int Ball_startY;
 
     private Ball ball;
     private Player player;
@@ -128,7 +136,7 @@ public class GamePanel extends JPanel implements ActionListener {
         if (e.getKeyChar() == 'd') player.setKeyRight(true);
         if (e.getKeyChar() == 'w') {
             controler.setKeySpace(true);
-            controler.addBullet(new Bullet(player.getX(), player.getY(),this));
+            controler.addBullet(new Bullet(player.getX(), player.getY(), this));
         }
 
     }
@@ -144,14 +152,16 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     public void makeWalls(){
-        for(int i=50; i<1250;i+=50){
-            walls.add(new Wall(i,550,Wall_width,Wall_height));
-        }
-        for(int i=50; i<600;i+=50){
-            walls.add(new Wall(0,i,Wall_width,Wall_height));
-        }
-        for(int i=50; i<600;i+=50){
-            walls.add(new Wall(1200,i,Wall_width,Wall_height));
+        if(Level_Number==1) {
+            for (int i = Wall_width; i < Walls_maxX; i += Wall_width) {
+                walls.add(new Wall(i, Walls_Y, Wall_width, Wall_height));
+            }
+            for (int i = Wall_width; i < Walls_maxY; i += Wall_width) {
+                walls.add(new Wall(Walls_X1, i, Wall_width, Wall_height));
+            }
+            for (int i = Wall_width; i < Walls_maxY; i += Wall_width) {
+                walls.add(new Wall(Walls_X2, i, Wall_width, Wall_height));
+            }
         }
     }
 
@@ -190,6 +200,15 @@ public class GamePanel extends JPanel implements ActionListener {
         Bullet_VelocityY = level.getBullet_VelocityY();
         Ball_Width = level.getBall_Width();
         Ball_Height = level.getBall_Height();
+        Level_Number = level.getLevel_Number();
+        Walls_X1 = level.getWalls_X1();
+        Walls_X2 = level.getWalls_X2();
+        Walls_Y = level.getWalls_Y();
+        Walls_maxX = level.getWalls_maxX();
+        Walls_maxY = level.getWalls_maxY();
+        Ball_startX = level.getBall_startX();
+        Ball_startY = level.getBall_startY();
+
     }
 
     public int getPlayer_VelocityX() {
@@ -282,5 +301,13 @@ public class GamePanel extends JPanel implements ActionListener {
 
     public int getBall_Height() {
         return Ball_Height;
+    }
+
+    public int getBall_startY() {
+        return Ball_startY;
+    }
+
+    public int getBall_startX() {
+        return Ball_startX;
     }
 }

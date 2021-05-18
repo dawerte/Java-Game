@@ -19,7 +19,7 @@ public class BulletController {
         for(int i=0; i<bullet.size();i++){
             TempBullet = bullet.get(i);
             TempBullet.set();
-            if(TempBullet.getY()>2000){
+            if(TempBullet.getY()<-2000){
                 removeBullet(TempBullet);
             }
         }

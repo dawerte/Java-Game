@@ -7,4 +7,10 @@ Player_VelocityJump: -6
 Bullet_VelocityY: -10
 Ball_width: 50
 Ball_height: 50
-
+Walls_X1: 0
+Walls_X2: 1200
+Walls_Y: 550
+Walls_maxX: 1250
+Walls_maxY: 600
+Ball_startX: 100
+Ball_startY: 50

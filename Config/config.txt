@@ -8,7 +8,7 @@ PLayer_position_y: 400
 PLayer_width: 50
 Player_height: 100
 Bullet_width: 10
-Bullet_height: 20
+Bullet_height: 100
 Wall_height: 50
 Wall_width: 50
 Max_velocity: 7

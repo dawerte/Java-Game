@@ -17,6 +17,13 @@ public class Level {
     private int Bullet_VelocityY;
     private int Ball_Width;
     private int Ball_Height;
+    private int Walls_X1;
+    private int Walls_X2;
+    private int Walls_Y;
+    private int Walls_maxX;
+    private int Walls_maxY;
+    private int Ball_startX;
+    private int Ball_startY;
 
     /**
      * Class constructor
@@ -61,6 +68,20 @@ public class Level {
         Ball_Width= scanner.nextInt();
         temp= scanner.next();
         Ball_Height= scanner.nextInt();
+        temp= scanner.next();
+        Walls_X1= scanner.nextInt();
+        temp= scanner.next();
+        Walls_X2= scanner.nextInt();
+        temp= scanner.next();
+        Walls_Y= scanner.nextInt();
+        temp= scanner.next();
+        Walls_maxX= scanner.nextInt();
+        temp= scanner.next();
+        Walls_maxY= scanner.nextInt();
+        temp= scanner.next();
+        Ball_startX= scanner.nextInt();
+        temp= scanner.next();
+        Ball_startY= scanner.nextInt();
     }
 
     public File getLevelFile() {
@@ -101,6 +122,34 @@ public class Level {
 
     public int getBall_Width() {
         return Ball_Width;
+    }
+
+    public int getWalls_Y() {
+        return Walls_Y;
+    }
+
+    public int getWalls_X1() {
+        return Walls_X1;
+    }
+
+    public int getWalls_X2() {
+        return Walls_X2;
+    }
+
+    public int getWalls_maxX() {
+        return Walls_maxX;
+    }
+
+    public int getWalls_maxY() {
+        return Walls_maxY;
+    }
+
+    public int getBall_startX() {
+        return Ball_startX;
+    }
+
+    public int getBall_startY() {
+        return Ball_startY;
     }
 }
 

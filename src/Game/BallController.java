@@ -15,22 +15,23 @@ public class BallController {
     public BallController(GamePanel panel, BulletController removingbullet){
         this.panel=panel;
         this.removingbullet=removingbullet;
-        addBall(new Ball(100, 50,panel.getBall_Width(), panel.getBall_Height(), panel,panel.getBall_VelocityX()));
-        addBall(new Ball(1000, 50,panel.getBall_Width(), panel.getBall_Height(), panel,panel.getBall_VelocityX()));
+        addBall(new Ball(panel.getBall_startX(), panel.getBall_startY(),panel.getBall_Width(), panel.getBall_Height(), panel,panel.getBall_VelocityX()));
+        addBall(new Ball(panel.getBall_startX()*10, panel.getBall_startY(),panel.getBall_Width(), panel.getBall_Height(), panel,panel.getBall_VelocityX()));
     }
     public void set(){
         for(int i=0; i<ball.size();i++){
             tempball = ball.get(i);
             if(removingbullet.getTempBullet()!=null ){
                 if(tempball.hitBox.intersects(removingbullet.getTempBullet().hitBox) && tempball.getHeight()==panel.getBall_Height() && tempball.getWidth()==panel.getBall_Width()){
+                    removingbullet.removeBullet(removingbullet.getTempBullet());
                     addBall(new Ball(tempball.getX(), tempball.getY(), panel.getBall_Width()/2, panel.getBall_Height()/2, panel,panel.getBall_VelocityX()));
                     addBall(new Ball(tempball.getX(), tempball.getY(), panel.getBall_Width()/2, panel.getBall_Height()/2, panel,panel.getBall_VelocityX()*-1));
                     removeBall(tempball);
-                    removingbullet.removeBullet(removingbullet.getTempBullet());
+
                 }
                 else if(tempball.hitBox.intersects(removingbullet.getTempBullet().hitBox) && tempball.getHeight()==panel.getBall_Height()/2 && tempball.getWidth()==panel.getBall_Width()/2){
-                    removeBall(tempball);
                     removingbullet.removeBullet(removingbullet.getTempBullet());
+                    removeBall(tempball);
                 }
             }
             tempball.set();
