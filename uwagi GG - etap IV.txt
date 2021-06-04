@@ -1,0 +1,29 @@
+"Serwer wysyła odpowiedź w postaci przesłania klientowi mapy 
+S: give_configuration maps => C"
+
+Czyli co? jestem programistą - jak mam w swoim progrmie interpretować/parsować otrzymany komunikat??? :-(
+
+"Klient wysyła do serwera wynik który uzyskał użytkownik (intiger), oraz jego nazwę-nick (string) 
+C: save_score score nick => S"
+
+Tutaj mam opisane parametry (znaczenie, typ) - tak samo muszą być opisane dane przesyłane z serwera do klienta!!!
+
+
+"Serwer wysyła odpowiedź do klienta, wysyłając wynik rankingowy (intiger) oraz nazwę (nick) gracza (string) na danej pozycji. 
+S: give_score score nick => C"
+
+
+Na jakiej danej pozycji? Wcześniejszy komunikat od klienta z żądaniem rankingu nie ma żadnego parametru...
+(A np. taki komunikat z żądaniem mapy ma parametr określający numer mapy ;-))
+A przy okazji: nie można od razu całej listy przesłać, np.:
+S: give_score score1 nick1 ... scoreN nickN
+(trzeba oczywiście trochę zmodyfikować opis)
+
+"Serwer wysyła odpowiedź wysyłając 4 linie tekstu (string) na podstawie których program narysuje komponenty graficzne. 
+S: give_map_configuration x_points y_points type block => C."
+
+"na podstawie których program narysuje komponenty graficzne"
+to ja jestem tym programistą, który pisze program... więc musze wiedzieć co z tego komunikatu odczytać, aby program "mógł narysować".
+Wymagany jest opis parametrów, a nie takie ogólne odesłanie "że program coś zrobi"!!!
+
+Etap zaliczam BARDZO warunkowo - należy uzupełnić w wersji końcowej!!!
