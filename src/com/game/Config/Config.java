@@ -24,7 +24,6 @@ public class Config {
     private int Wall_height;
     private int Wall_width;
     private int Max_velocity;
-    private int test;
     /**
      * Class Constructor
      * @throws FileNotFoundException
