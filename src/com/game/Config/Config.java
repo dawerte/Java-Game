@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Class reads configuration files (global parameters)
  */
 public class Config {
-
+//test
     private File file;
 
     private int Window_width;
@@ -24,6 +24,7 @@ public class Config {
     private int Wall_height;
     private int Wall_width;
     private int Max_velocity;
+    private int test;
     /**
      * Class Constructor
      * @throws FileNotFoundException
