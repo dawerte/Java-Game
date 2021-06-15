@@ -1,5 +1,5 @@
-Level_Number: 1
-Number_of_Balls: 2
+Level_Number: 2
+Number_of_Balls: 1
 Ball_VelocityX: 4
 Ball_VelocityY: 0
 Player_VelocityX: 1

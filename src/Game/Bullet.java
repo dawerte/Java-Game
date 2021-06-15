@@ -6,8 +6,8 @@ import java.awt.*;
 
 public class Bullet {
     private GamePanel panel;
-    private int x;
-    private int y;
+    private double x;
+    private double y;
 
     private int width;
     private int height;
@@ -17,14 +17,14 @@ public class Bullet {
     Rectangle hitBox;
 
 
-    public Bullet(int x, int y, GamePanel panel){
+    public Bullet(double x, double y, GamePanel panel){
         this.panel = panel;
         this.x=x;
         this.y=y;
         this.height= panel.getBullet_height();
         this.width=panel.getBullet_width();
 
-        hitBox = new Rectangle(x,y,width,height);
+        hitBox = new Rectangle((int)x,(int)y,width,height);
 
     }
     public void set(){
@@ -32,15 +32,19 @@ public class Bullet {
 
         y +=yspeed;
       
-        hitBox.y=y;
+        hitBox.y=(int)y;
+        hitBox.x= (int)x;
 
     }
     public void draw(Graphics2D gtd){
         gtd.setColor(Color.GREEN);
-        gtd.fillRect(x,y,width,height);
+        gtd.fillRect((int)x,(int)y,width,height);
     }
 
-    public int getY() {
+    public double getY() {
         return y;
+    }
+    public double getX() {
+        return x;
     }
 }

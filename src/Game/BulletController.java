@@ -45,4 +45,8 @@ public class BulletController {
     public Bullet getTempBullet() {
         return TempBullet;
     }
+
+    public LinkedList<Bullet> getBullet() {
+        return bullet;
+    }
 }

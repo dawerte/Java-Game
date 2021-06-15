@@ -1,6 +1,7 @@
 package Game;
 
 import com.game.GUI.GamePanel;
+import com.game.GUI.Leaderboard;
 
 import javax.swing.*;
 
@@ -25,25 +26,26 @@ public class DeathController {
                 player.hitBox.y -=player.getYspeed();
                 while(!player.hitBox.intersects(tempball.hitBox)) tempball.hitBox.y += Math.signum(tempball.getYspeed());
                 tempball.hitBox.y -= Math.signum(tempball.getYspeed());
-                tempball.setYspeed(0);
-                panel.setRunning(false);
-                JOptionPane.showMessageDialog(null,
-                        "You are dead ");
-                System.exit(0);
+                panel.setLives(panel.getLives()-1);
+                panel.RestartLevel();
+                if(panel.getLives()==0) {
+                    tempball.setYspeed(0);
+                    panel.setRunning(false);
+                    new Leaderboard(panel);
+                }
             }
 
-            if(tempball.hitBox.intersects(player.hitBox)){
-                tempball.hitBox.x-=tempball.getXspeed();
-                player.hitBox.x -= player.getXspeed();
-                while(!player.hitBox.intersects(tempball.hitBox)) tempball.hitBox.x += Math.signum(tempball.getXspeed());
-                tempball.hitBox.x -= Math.signum(tempball.getXspeed());
-                tempball.setXspeed(0);
-                panel.setRunning(false);
-                JOptionPane.showMessageDialog(null,
-                        "You are dead ");
-                System.exit(0);
+//            if(tempball.hitBox.intersects(player.hitBox)){
+//                tempball.hitBox.x-=tempball.getXspeed();
+//                player.hitBox.x -= player.getXspeed();
+//                while(!player.hitBox.intersects(tempball.hitBox)) tempball.hitBox.x += Math.signum(tempball.getXspeed());
+//                tempball.hitBox.x -= Math.signum(tempball.getXspeed());
+//                tempball.setXspeed(0);
+//                panel.setRunning(false);
+//                JOptionPane.showMessageDialog(null,
+//                        "You are dead ");
+//                System.exit(0);
 
-            }
             //if (player.hitBox.intersects(tempball.hitBox)) {
            //     player.hitBox.y-=player.getYspeed();
             //    player.hitBox.x= tempball.getX();
