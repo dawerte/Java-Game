@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Class reads configuration files (global parameters)
  */
 public class Config {
-
+//test
     private File file;
 
     private int Window_width;
