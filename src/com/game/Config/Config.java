@@ -85,6 +85,7 @@ public class Config {
         Menu_width = scanner.nextInt();
         temp = scanner.next();
         Menu_height = scanner.nextInt();
+
     }
 
     public int getBlock_height() {
