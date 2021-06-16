@@ -14,3 +14,7 @@ Wall_width: 50
 Max_velocity: 7
 Menu_width: 700
 Menu_height: 420
+Button_width: 500
+Button_height: 100
+Button_separator: 25
+Start_height: 200

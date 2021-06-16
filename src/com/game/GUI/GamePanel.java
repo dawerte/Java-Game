@@ -612,4 +612,11 @@ public class GamePanel extends JPanel implements ActionListener {
         return connected;
     }
 
+    public int getButton_width(){return config.getButton_width();}
+
+    public int getButton_height(){return config.getButton_height();}
+
+    public int getButton_separator(){return config.getButton_separator();}
+
+    public int getStart_height(){return config.getStart_height();}
 }

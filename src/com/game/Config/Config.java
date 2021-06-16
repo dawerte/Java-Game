@@ -26,6 +26,11 @@ public class Config {
     private int Max_velocity;
     private int Menu_width;
     private int Menu_height;
+    private int Button_width;
+    private int Button_height;
+    private int Button_separator;
+    private int Start_height;
+
 
     /**
      * Class Constructor
@@ -86,6 +91,15 @@ public class Config {
         temp = scanner.next();
         Menu_height = scanner.nextInt();
 
+        temp = scanner.next();
+        Button_width = scanner.nextInt();
+        temp = scanner.next();
+        Button_height = scanner.nextInt();
+        temp = scanner.next();
+        Button_separator = scanner.nextInt();
+        temp = scanner.next();
+        Start_height = scanner.nextInt();
+
     }
 
     public int getBlock_height() {
@@ -140,16 +154,29 @@ public class Config {
         return Window_height;
     }
 
-    public int getWindow_width() {
-        return Window_width;
-    }
+    public int getWindow_width() { return Window_width; }
 
     public int getMenu_width() {
         return Menu_width;
     }
-
     public int getMenu_height() {
         return Menu_height;
     }
+
+    public int getButton_width() {
+        return Button_width;
+    }
+
+    public int getButton_height() { return Button_height; }
+
+    public int getButton_separator() {
+        return Button_separator;
+    }
+
+    public int getStart_height() {
+        return Start_height;
+    }
+
+
 }
 
