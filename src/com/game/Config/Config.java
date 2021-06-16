@@ -30,6 +30,7 @@ public class Config {
     private int Button_height;
     private int Button_separator;
     private int Start_height;
+    private int Text_start_percents;
 
 
     /**
@@ -99,6 +100,8 @@ public class Config {
         Button_separator = scanner.nextInt();
         temp = scanner.next();
         Start_height = scanner.nextInt();
+        temp = scanner.next();
+        Text_start_percents = scanner.nextInt();
 
     }
 
@@ -173,9 +176,9 @@ public class Config {
         return Button_separator;
     }
 
-    public int getStart_height() {
-        return Start_height;
-    }
+    public int getStart_height() { return Start_height; }
+
+    public int getText_start_percents() { return Text_start_percents; }
 
 
 }

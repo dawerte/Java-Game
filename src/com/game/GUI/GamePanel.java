@@ -619,4 +619,6 @@ public class GamePanel extends JPanel implements ActionListener {
     public int getButton_separator(){return config.getButton_separator();}
 
     public int getStart_height(){return config.getStart_height();}
+
+    public int getText_start_percents() { return config.getText_start_percents(); }
 }

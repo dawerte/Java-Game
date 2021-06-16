@@ -28,9 +28,13 @@ public class Menu {
         gtd.setFont(fnt1);
         gtd.drawString(""+panel.getStateserver(),1050,670);
         gtd.setColor(Color.WHITE);
-        gtd.drawString("New Game", panel.getWindow_width() / 2 - 130, 270);
-        gtd.drawString("Leaderboard", panel.getWindow_width() / 2 - 130, 390);
-        gtd.drawString("Options", panel.getWindow_width() / 2 - 130, 515);
-        gtd.drawString("Exit", panel.getWindow_width() / 2 - 130, 645);
+        pos_manager.Restart();
+        gtd.drawString("New Game", pos_manager.getPosX()+ (float) (panel.getText_start_percents())/100 * pos_manager.getButton_width(), pos_manager.getPosY()+70);
+        pos_manager.CalculateNextButtonPos();
+        gtd.drawString("Leaderboard",pos_manager.getPosX()+ (float) (panel.getText_start_percents())/100 * pos_manager.getButton_width(), pos_manager.getPosY()+70);
+        pos_manager.CalculateNextButtonPos();
+        gtd.drawString("Options", pos_manager.getPosX()+ (float) (panel.getText_start_percents())/100 * pos_manager.getButton_width(), pos_manager.getPosY()+70);
+        pos_manager.CalculateNextButtonPos();
+        gtd.drawString("Exit", pos_manager.getPosX()+ (float) (panel.getText_start_percents())/100 * pos_manager.getButton_width(), pos_manager.getPosY()+70);
     }
 }

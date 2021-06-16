@@ -18,3 +18,4 @@ Button_width: 500
 Button_height: 100
 Button_separator: 25
 Start_height: 200
+Text_start_percents: 21
