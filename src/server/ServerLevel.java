@@ -1,11 +1,12 @@
-package com.game.Config;
+package server;
+
+import com.game.Config.ReadingFiles;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-/**
- * Class reads configuration files (level parameters)
- */
-public class Level {
+
+public class ServerLevel {
     private File levelFile;
 
     private int Level_Number;
@@ -29,11 +30,11 @@ public class Level {
      * Class constructor
      * @throws FileNotFoundException
      */
-    public Level() throws FileNotFoundException{
+    public ServerLevel() throws FileNotFoundException{
         LocateFile(1);
         DataReader();
     }
-    public Level(int i) throws FileNotFoundException{
+    public ServerLevel(int i) throws FileNotFoundException{
         LocateFile(i);
         DataReader();
     }
@@ -156,5 +157,3 @@ public class Level {
         return Ball_startY;
     }
 }
-
-

@@ -4,10 +4,10 @@ import com.game.GUI.GamePanel;
 
 import java.awt.*;
 
-public class Ball {
+public class Ball{
     private GamePanel panel;
-    private int x;
-    private int y;
+    private double x;
+    private double y;
 
     private int width;
     private int height;
@@ -17,14 +17,14 @@ public class Ball {
 
     Rectangle hitBox;
 
-    public Ball(int x,int y, int width,int height, GamePanel panel,int xspeed) {
+    public Ball(double x,double y, int width,int height, GamePanel panel,int xspeed) {
         this.panel = panel;
         this.x = x;
         this.y = y;
         this.width=width;
         this.height=height;
         this.xspeed=xspeed;
-        hitBox = new Rectangle(x, y, width, height);
+        hitBox = new Rectangle((int)x, (int)y, width, height);
         yspeed=panel.getBall_VelocityY();
 
     }
@@ -58,19 +58,19 @@ public class Ball {
         x +=xspeed;
         y +=yspeed;
 
-        hitBox.x=x;
-        hitBox.y=y;
+        hitBox.x=(int)x;
+        hitBox.y=(int)y;
     }
     public void draw(Graphics2D gtd){
         gtd.setColor(Color.BLACK);
-        gtd.fillRect(x,y,width,height);
+        gtd.fillRect((int)x,(int)y,width,height);
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 

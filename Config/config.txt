@@ -12,3 +12,5 @@ Bullet_height: 100
 Wall_height: 50
 Wall_width: 50
 Max_velocity: 7
+Menu_width: 700
+Menu_height: 420

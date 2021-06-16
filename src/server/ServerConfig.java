@@ -1,13 +1,13 @@
-package com.game.Config;
+package server;
+
+import com.game.Config.ReadingFiles;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-/**
- * Class reads configuration files (global parameters)
- */
-public class Config {
-    //test
+
+public class ServerConfig {
+
     private File file;
 
     private int Window_width;
@@ -24,15 +24,11 @@ public class Config {
     private int Wall_height;
     private int Wall_width;
     private int Max_velocity;
-    private int Menu_width;
-    private int Menu_height;
-
     /**
      * Class Constructor
-     *
      * @throws FileNotFoundException
      */
-    public Config() throws FileNotFoundException {   //
+    public ServerConfig() throws FileNotFoundException{   //
         LocateFile();
         DataReader();
     }
@@ -40,51 +36,46 @@ public class Config {
     /**
      * Locates file's directory
      */
-    private void LocateFile() {
+    private void LocateFile(){
         String path = new ReadingFiles("Config").MaKeFile("config.txt").toString();
         file = new File(path);
     }
 
     /**
      * Reads parameters from file and assign them to variables
-     *
      * @throws FileNotFoundException
      */
     private void DataReader() throws FileNotFoundException {
         Scanner scanner = new Scanner(file);
         String temp;
-        temp = scanner.next();
+        temp=scanner.next();
         Window_width = scanner.nextInt();
-        temp = scanner.next();
-        Window_height = scanner.nextInt();
-        temp = scanner.next();
-        Block_size = scanner.nextInt();
-        temp = scanner.next();
-        Block_width = scanner.nextInt();
-        temp = scanner.next();
-        Block_height = scanner.nextInt();
-        temp = scanner.next();
-        Player_position_x = scanner.nextInt();
-        temp = scanner.next();
-        PLayer_position_y = scanner.nextInt();
-        temp = scanner.next();
-        PLayer_width = scanner.nextInt();
-        temp = scanner.next();
-        Player_height = scanner.nextInt();
-        temp = scanner.next();
-        Bullet_width = scanner.nextInt();
-        temp = scanner.next();
-        Bullet_height = scanner.nextInt();
-        temp = scanner.next();
-        Wall_height = scanner.nextInt();
-        temp = scanner.next();
-        Wall_width = scanner.nextInt();
-        temp = scanner.next();
-        Max_velocity = scanner.nextInt();
-        temp = scanner.next();
-        Menu_width = scanner.nextInt();
-        temp = scanner.next();
-        Menu_height = scanner.nextInt();
+        temp=scanner.next();
+        Window_height= scanner.nextInt();
+        temp=scanner.next();
+        Block_size= scanner.nextInt();
+        temp=scanner.next();
+        Block_width= scanner.nextInt();
+        temp=scanner.next();
+        Block_height= scanner.nextInt();
+        temp=scanner.next();
+        Player_position_x= scanner.nextInt();
+        temp=scanner.next();
+        PLayer_position_y= scanner.nextInt();
+        temp=scanner.next();
+        PLayer_width= scanner.nextInt();
+        temp=scanner.next();
+        Player_height= scanner.nextInt();
+        temp=scanner.next();
+        Bullet_width= scanner.nextInt();
+        temp=scanner.next();
+        Bullet_height= scanner.nextInt();
+        temp=scanner.next();
+        Wall_height= scanner.nextInt();
+        temp=scanner.next();
+        Wall_width= scanner.nextInt();
+        temp=scanner.next();
+        Max_velocity= scanner.nextInt();
     }
 
     public int getBlock_height() {
@@ -142,13 +133,4 @@ public class Config {
     public int getWindow_width() {
         return Window_width;
     }
-
-    public int getMenu_width() {
-        return Menu_width;
-    }
-
-    public int getMenu_height() {
-        return Menu_height;
-    }
 }
-

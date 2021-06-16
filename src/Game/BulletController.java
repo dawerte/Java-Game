@@ -15,6 +15,7 @@ public class BulletController {
     public BulletController(GamePanel panel){
         this.panel=panel;
     }
+
     public void set(){
         for(int i=0; i<bullet.size();i++){
             TempBullet = bullet.get(i);
@@ -44,5 +45,9 @@ public class BulletController {
 
     public Bullet getTempBullet() {
         return TempBullet;
+    }
+
+    public LinkedList<Bullet> getBullet() {
+        return bullet;
     }
 }
