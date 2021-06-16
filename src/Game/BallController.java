@@ -6,12 +6,24 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedList;
 
+/**
+ * class which controls the balls
+ *
+ */
+
 public class BallController {
     private LinkedList<Ball> ball = new LinkedList<Ball>();
     private Ball tempball;
     private GamePanel panel;
     private BulletController removingbullet;
     private static int count = 1;
+
+    /**
+     * constructor which sets balls on the board at the beginning
+     *
+     * @param panel takes all ball's parameters
+     * @param removingbullet
+     */
 
     public BallController(GamePanel panel, BulletController removingbullet){
         this.panel=panel;
@@ -29,7 +41,14 @@ public class BallController {
             addBall(new Ball(panel.getBall_startX() * 4, panel.getBall_startY(), panel.getBall_Width(), panel.getBall_Height(), panel, panel.getBall_VelocityX()));
         }
     }
+
+    /**
+     * function which explores the relationship between ball and bullet, level
+     *
+     */
+
     public void set(){
+
         for(int i=0; i<ball.size();i++){
             tempball = ball.get(i);
             if(removingbullet.getTempBullet()!=null ) {
@@ -97,6 +116,12 @@ public class BallController {
             }
         }
     }
+
+    /**
+     *function draws ball on board
+     *
+     * @param g
+     */
     public void draw(Graphics2D g){
         for(int i=0; i<ball.size();i++){
             tempball=ball.get(i);

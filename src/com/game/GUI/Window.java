@@ -4,7 +4,7 @@ import Game.KeyChecker;
 import javax.swing.JFrame;
 
 /**
- * Creates GUI of the game
+ * Creates GUI of the game (whole frame)
  */
 public class Window extends JFrame {
     /**

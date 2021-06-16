@@ -4,11 +4,21 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
+/**
+ * class creating window to leader board
+ *
+ */
+
 public class Leaderboard extends JFrame {
 
     private Container container=getContentPane();
     private Container container2=getContentPane();
 
+    /**
+     *
+     * constructor creating window to leader board
+     * @param panel
+     */
     public Leaderboard(GamePanel panel) {
     super("Score to leaderboard");
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

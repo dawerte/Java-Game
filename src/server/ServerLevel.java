@@ -6,6 +6,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * class loading files to server
+ */
+
 public class ServerLevel {
     private File levelFile;
 

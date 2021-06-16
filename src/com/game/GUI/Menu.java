@@ -2,6 +2,11 @@ package com.game.GUI;
 
 import java.awt.*;
 
+/**
+ * class makes menu (how it looks like)
+ *
+ */
+
 public class Menu {
 
     private GamePanel panel;
@@ -9,6 +14,12 @@ public class Menu {
     Menu(GamePanel panel) {
         this.panel = panel;
     }
+
+    /**
+     *
+     * function which is drawing the menu
+     * @param gtd
+     */
 
     public void draw(Graphics2D gtd) {
         ButtonManager pos_manager = new ButtonManager(panel.getStart_height(), panel.getWindow_width()/2 - panel.getButton_width()/2, panel.getButton_height(), panel.getButton_width(), panel.getButton_separator());

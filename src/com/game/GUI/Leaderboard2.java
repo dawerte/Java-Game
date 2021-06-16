@@ -4,6 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
+/**
+ * class creating window (leader board)
+ *
+ */
+
 public class Leaderboard2 extends JFrame {
 
     private Container container=getContentPane();

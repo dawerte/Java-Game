@@ -11,6 +11,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+/**
+ * class which saves score to file
+ *
+ */
 
 public class LeaderboardBody extends JPanel implements ActionListener {
 
@@ -47,6 +51,12 @@ public class LeaderboardBody extends JPanel implements ActionListener {
 
     }
     @Override
+
+    /**
+     * starts the operation of the buttons
+     *
+     */
+
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals(button.getText())){
             userText = textField.getText();
@@ -87,6 +97,13 @@ public class LeaderboardBody extends JPanel implements ActionListener {
 
         }
     }
+
+    /**
+     * loading scores from file
+     *
+     * @throws FileNotFoundException
+     */
+
     public void load() throws FileNotFoundException {
         String path = new ReadingFiles("Config").MaKeFile("leaderboard.txt").toString();
         leaderboardfile = new File(path);

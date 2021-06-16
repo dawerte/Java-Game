@@ -4,6 +4,11 @@ import com.game.GUI.GamePanel;
 
 import java.awt.*;
 
+/**
+ * class making a player
+ *
+ */
+
 public class Player {
     private GamePanel panel;
     private int x;
@@ -23,6 +28,14 @@ public class Player {
     private boolean keyDown;
     private int max_speed;
 
+    /**
+     * function determining parameters of a player
+     *
+     * @param x
+     * @param y
+     * @param panel
+     */
+
     public Player(int x,int y, GamePanel panel){
         this.panel = panel;
         this.x=x;
@@ -34,6 +47,12 @@ public class Player {
 
 
     }
+
+    /**
+     * function handling player movement
+     *
+     */
+
     public void set(){
         if(keyLeft && keyRight || !keyLeft && !keyRight) xspeed *=0.8;
         else if(keyLeft && !keyRight) xspeed--;
@@ -82,6 +101,13 @@ public class Player {
         hitBox.y=y;
 
     }
+
+    /**
+     * function drawing (sets color) player
+     *
+     * @param gtd
+     */
+
     public void draw(Graphics2D gtd){
         gtd.setColor(Color.RED);
         gtd.fillRect(x,y,width,height);

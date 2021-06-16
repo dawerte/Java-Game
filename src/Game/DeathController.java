@@ -5,6 +5,11 @@ import com.game.GUI.Leaderboard;
 
 import javax.swing.*;
 
+/**
+ * class controls death (and removing) objects from board
+ *
+ */
+
 public class DeathController {
     private GamePanel panel;
     private BallController ball;
@@ -16,6 +21,11 @@ public class DeathController {
         this.panel=panel;
         this.player=player;
     }
+
+    /**
+     * function controls death (and removing) objects from board
+     *
+     */
     public void set(){
         for(int i=0; i<ball.getBall().size();i++) {
             tempball = ball.getBall().get(i);

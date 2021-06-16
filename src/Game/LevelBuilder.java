@@ -4,6 +4,11 @@ import com.game.GUI.GamePanel;
 
 import java.util.ArrayList;
 
+/**
+ * class which makes walls (and extra walls) in each level
+ *
+ */
+
 public class LevelBuilder {
 
     private GamePanel panel;
@@ -13,6 +18,12 @@ public class LevelBuilder {
         this.panel=panel;
         this.walls=walls;
     }
+
+    /**
+     * function making walls
+     *
+     * @param j
+     */
     public void Level(int j){
 
         if(j==1) {

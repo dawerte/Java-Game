@@ -16,7 +16,10 @@ public class Bullet {
 
     Rectangle hitBox;
 
-
+    /**
+     * class making a bullet
+     *
+     */
     public Bullet(double x, double y, GamePanel panel){
         this.panel = panel;
         this.x=x;
@@ -36,6 +39,13 @@ public class Bullet {
         hitBox.x= (int)x;
 
     }
+
+    /**
+     * function giving color to our bullet
+     *
+     * @param gtd
+     */
+
     public void draw(Graphics2D gtd){
         gtd.setColor(Color.GREEN);
         gtd.fillRect((int)x,(int)y,width,height);

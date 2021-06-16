@@ -5,6 +5,11 @@ import com.game.GUI.GamePanel;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+/**
+ * class which checks if buttons are pressed or released
+ *
+ */
+
 public class KeyChecker extends KeyAdapter {
     GamePanel panel;
 

@@ -9,6 +9,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ *
+ * class which shows 5 best scores
+ *
+ */
+
 public class LeaderboardArray extends JPanel implements ActionListener {
 
     private JLabel nick,score,bestscores;
@@ -45,6 +51,12 @@ public class LeaderboardArray extends JPanel implements ActionListener {
 
 
     }
+
+    /**
+     * reading 5 best scores from file
+     *
+     * @throws FileNotFoundException
+     */
     public void ReadLeaderboard() throws FileNotFoundException {
         String path = new ReadingFiles("Config").MaKeFile("leaderboard.txt").toString();
         leaderboardfile = new File(path);
@@ -61,6 +73,12 @@ public class LeaderboardArray extends JPanel implements ActionListener {
         scorecointainer[4]= scanner.nextInt();
     }
     @Override
+
+    /**
+     * starts the operation of the buttons
+     *
+     */
+
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals(b.getText())){
             leaderboard.setVisible(false);

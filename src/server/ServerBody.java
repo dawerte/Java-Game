@@ -7,6 +7,11 @@ import java.io.*;
 import java.lang.reflect.Array;
 import java.net.Socket;
 
+/**
+ * class server body, determining all important informations
+ *
+ */
+
 public class ServerBody extends Thread {
 
     private ServerConfig config;
@@ -145,6 +150,13 @@ public class ServerBody extends Thread {
 
 
     }
+
+    /**
+     *
+     * function sending array of variables
+     * @throws IOException
+     */
+
     public void Sending() throws IOException {
         System.out.println("Client connected");
 
@@ -152,12 +164,26 @@ public class ServerBody extends Thread {
         op.writeObject(makeArray());
         op.flush();
     }
+
+    /**
+     * function receiving level number
+     * @param socket
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
+
     public void RecivingtoSwap(Socket socket) throws IOException, ClassNotFoundException {
 
         ObjectInputStream in= new ObjectInputStream(socket.getInputStream());
         Level_Number=(int)in.readObject();
         Ballsize=(int)in.readObject();
     }
+
+    /**
+     * function switches levels
+     *
+     */
+
     public void SwapLevels() {
         try{
             RecivingtoSwap(this.socket);

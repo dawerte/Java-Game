@@ -15,6 +15,14 @@ public class RadioBoxBody extends JPanel implements ActionListener {
    private GamePanel panel;
    private RadioBox radiobox;
 
+    /**
+     *
+     * making the panel of RadioBox
+     *
+     * @param panel
+     * @param radiobox
+     */
+
     public RadioBoxBody(GamePanel panel,RadioBox radiobox) {
         this.panel=panel;
         this.radiobox=radiobox;
@@ -41,6 +49,11 @@ public class RadioBoxBody extends JPanel implements ActionListener {
     }
 
     @Override
+
+    /**
+     * button operation of RadioBox
+     *
+     */
     public void actionPerformed(ActionEvent e) {
         if(serverButton.isSelected()){
             if(panel.getConnected()) {

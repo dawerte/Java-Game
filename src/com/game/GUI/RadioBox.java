@@ -7,6 +7,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 
+/**
+ * class makes window to choose if we want to change mode of game (local or server)
+ *
+ */
+
 public class RadioBox extends JFrame{
     public RadioBox(GamePanel panel){
         super("Choice variables");

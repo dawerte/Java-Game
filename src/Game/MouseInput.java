@@ -5,6 +5,11 @@ import com.game.GUI.GamePanel;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/**
+ * class which detect mouse input
+ *
+ */
+
 public class MouseInput implements MouseListener {
 
     private GamePanel panel;
@@ -18,6 +23,12 @@ public class MouseInput implements MouseListener {
     }
 
     @Override
+
+    /**
+     * function detecting a press on a button
+     *
+     */
+
     public void mousePressed(MouseEvent e) {
         int mx=e.getX();
         int my=e.getY();

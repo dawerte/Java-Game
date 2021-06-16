@@ -5,6 +5,11 @@ import com.game.GUI.GamePanel;
 import java.awt.*;
 import java.util.LinkedList;
 
+/**
+ * class which controls the bullet
+ *
+ */
+
 public class BulletController {
     private LinkedList<Bullet> bullet =new LinkedList<Bullet>();
     private Bullet TempBullet;
@@ -16,6 +21,11 @@ public class BulletController {
         this.panel=panel;
     }
 
+    /**
+     * function which sets bullet on board and determines when it will end
+     *
+     */
+
     public void set(){
         for(int i=0; i<bullet.size();i++){
             TempBullet = bullet.get(i);
@@ -25,6 +35,12 @@ public class BulletController {
             }
         }
     }
+
+    /**
+     * function which draws bullet on board
+     * @param g
+     */
+
     public void draw(Graphics2D g){
         for(int i=0; i<bullet.size();i++){
             TempBullet=bullet.get(i);

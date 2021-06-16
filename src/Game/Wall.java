@@ -2,6 +2,11 @@ package Game;
 
 import java.awt.*;
 
+/**
+ * class making wall
+ *
+ */
+
 public class Wall {
 
     private int x;
@@ -20,6 +25,12 @@ public class Wall {
         hitBox=new Rectangle(x,y,width,height);
 
     }
+
+    /**
+     *
+     * function drawing wall (setting color etc.)
+     * @param gtd
+     */
     public void draw(Graphics2D gtd){
         gtd.setColor(Color.BLACK);
         gtd.drawRect(x,y,width,height);

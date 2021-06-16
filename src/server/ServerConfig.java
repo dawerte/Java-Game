@@ -6,6 +6,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * class configuring server
+ *
+ */
+
 public class ServerConfig {
 
     private File file;

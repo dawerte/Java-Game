@@ -4,6 +4,11 @@ import com.game.GUI.GamePanel;
 
 import java.awt.*;
 
+/**
+ * class which creates ball and set all they parameters
+ *
+ */
+
 public class Ball{
     private GamePanel panel;
     private double x;
@@ -17,6 +22,16 @@ public class Ball{
 
     Rectangle hitBox;
 
+    /**
+     * class constructor
+     * @param x
+     * @param y
+     * @param width
+     * @param height
+     * @param panel
+     * @param xspeed
+     */
+
     public Ball(double x,double y, int width,int height, GamePanel panel,int xspeed) {
         this.panel = panel;
         this.x = x;
@@ -28,6 +43,11 @@ public class Ball{
         yspeed=panel.getBall_VelocityY();
 
     }
+
+    /**
+     * function determining the position of ball etc.
+     *
+     */
     public void set(){
 
         yspeed+=0.3;
@@ -61,6 +81,12 @@ public class Ball{
         hitBox.x=(int)x;
         hitBox.y=(int)y;
     }
+
+    /**
+     *
+     * function which gives ball a color
+     * @param gtd
+     */
     public void draw(Graphics2D gtd){
         gtd.setColor(Color.BLACK);
         gtd.fillRect((int)x,(int)y,width,height);
