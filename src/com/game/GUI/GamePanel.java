@@ -144,6 +144,8 @@ public class GamePanel extends JPanel implements ActionListener {
        // makeWalls();
    //     JOptionPane.showMessageDialog(null,
      //           "Hello! A - go left, D - go right, W - shoot, space - jump ");
+
+
         gameTimer = new Timer();
         gameTimerTask=new TimerTask() {
             @Override
@@ -182,6 +184,12 @@ public class GamePanel extends JPanel implements ActionListener {
         pauseTimer.schedule(pauseTimerTask, 0, 17);
     }
 
+    /**
+     * function drawing stuff on the screen
+     *
+     * @param g render context
+     *
+     */
 
     public void paint(Graphics g) {
         super.paint(g);
@@ -212,6 +220,12 @@ public class GamePanel extends JPanel implements ActionListener {
             menu.draw(gtd);
         }
     }
+
+    /**
+     * function scanning for effective key events that is being send to process functions
+     *
+     * @param e key event
+     */
     public void keyPressed(KeyEvent e) {
         if (state == STATE.GAME) {
             if (e.getKeyChar() == 'a') player.setKeyLeft(true);
@@ -251,6 +265,11 @@ public class GamePanel extends JPanel implements ActionListener {
 
         }
     }
+    /**
+     * function scanning for effective release key events that is being send to process functions
+     *
+     * @param e key event
+     */
     public void keyReleased(KeyEvent e){
         if(state==STATE.GAME) {
             if (e.getKeyChar() == 'a') player.setKeyLeft(false);
@@ -281,6 +300,12 @@ public class GamePanel extends JPanel implements ActionListener {
     public ArrayList<Wall> getWalls() {
         return walls;
     }
+
+    /**
+     * calculates scale of window resize
+     *
+     */
+
     public void calculatescale(){
     scalex = this.getWidth()/(double)Window_width;
     scaley = this.getHeight()/(double)Window_height;
@@ -289,6 +314,12 @@ public class GamePanel extends JPanel implements ActionListener {
     public void setRunning(boolean running) {
         this.running = running;
     }
+
+    /**
+     * populates data of this object with loaded configs
+     *
+     */
+
     public void setVariables(){
         Window_width = config.getWindow_width();
         Window_height = config.getWindow_height();
@@ -354,13 +385,23 @@ public class GamePanel extends JPanel implements ActionListener {
         Ball_startX =client.getArray()[28];
         Ball_startY = client.getArray()[29];
     }
+
+    /**
+     * restarts the level to restart parameters
+     *
+     */
+
     private void ClearLevel(){
         walls.clear();
         ballcontroler.getBall().clear();
         controler.getBullet().clear();
-
-
     }
+
+    /**
+     * function switching the level
+     *
+     */
+
     public void SwitchLevel(){
         ClearLevel();
                 if(stateserver==STATESERVER.LOCAL) {
@@ -388,6 +429,12 @@ public class GamePanel extends JPanel implements ActionListener {
                 levelbuilder.Level(Level_Number);
 
     }
+
+    /**
+     * function restarting the level
+     *
+     */
+
     public void RestartLevel() {
         ClearLevel();
                 if (stateserver == STATESERVER.LOCAL) {

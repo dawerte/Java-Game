@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 /**
- * Class reads configuration files (global parameters)
+ * Class reads and stores configuration files (global parameters)
  */
 public class Config {
     //test
@@ -105,6 +105,8 @@ public class Config {
 
     }
 
+
+
     public int getBlock_height() {
         return Block_height;
     }
@@ -162,6 +164,7 @@ public class Config {
     public int getMenu_width() {
         return Menu_width;
     }
+
     public int getMenu_height() {
         return Menu_height;
     }
