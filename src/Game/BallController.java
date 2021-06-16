@@ -16,7 +16,6 @@ public class BallController {
     public BallController(GamePanel panel, BulletController removingbullet){
         this.panel=panel;
         this.removingbullet=removingbullet;
-
         if(panel.getNumber_of_Balls()==1) {
             addBall(new Ball(panel.getBall_startX(), panel.getBall_startY(), panel.getBall_Width(), panel.getBall_Height(), panel, panel.getBall_VelocityX()));
         }
