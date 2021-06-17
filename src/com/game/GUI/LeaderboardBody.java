@@ -125,4 +125,12 @@ public class LeaderboardBody extends JPanel implements ActionListener {
     public String getUserText() {
         return userText;
     }
+
+    public ArrayList<Integer> getScores() {
+        return scores;
+    }
+
+    public ArrayList<String> getNicknames() {
+        return nicknames;
+    }
 }

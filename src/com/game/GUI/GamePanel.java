@@ -112,7 +112,7 @@ public class GamePanel extends JPanel implements ActionListener {
             System.out.println("Błąd odczytu danych");
         }
         try {
-            client = new Client(this);
+            client = new Client();
             connected=true;
         }catch(IOException e){
             System.out.println("Błąd odczytu 1");
@@ -136,7 +136,7 @@ public class GamePanel extends JPanel implements ActionListener {
         player = new Player(Player_position_x, PLayer_position_y, this);
         controler =new BulletController(this);
         ballcontroler=new BallController(this,controler);
-        deathcontroler=new DeathController(this,ballcontroler,player);
+        deathcontroler=new DeathController(this,ballcontroler,player,client);
         levelbuilder=new LevelBuilder(this,walls);
         levelbuilder.Level(1);
         fnt0 = new Font("arial", Font.BOLD, 40);
@@ -152,9 +152,17 @@ public class GamePanel extends JPanel implements ActionListener {
             public void run() {
                 if(running) {
                     if(state==STATE.GAME) {
-                        deathcontroler.set();
+                        try {
+                            deathcontroler.set();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                         player.set();
-                        ballcontroler.set();
+                        try {
+                            ballcontroler.set();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                         controler.set();
                     }else if(state==STATE.QUIT){
                         running=false;
@@ -229,10 +237,10 @@ public class GamePanel extends JPanel implements ActionListener {
     public void keyPressed(KeyEvent e) {
         if (state == STATE.GAME) {
             if (e.getKeyChar() == 'a') player.setKeyLeft(true);
-            if (e.getKeyChar() == ' ') player.setKeyUp(true);
+            if (e.getKeyChar() == 'w') player.setKeyUp(true);
             if (e.getKeyChar() == 's') player.setKeyDown(true);
             if (e.getKeyChar() == 'd') player.setKeyRight(true);
-            if (e.getKeyChar() == 'w') {
+            if (e.getKeyChar() == ' ') {
                 controler.setKeySpace(true);
                 controler.addBullet(new Bullet(player.getX(), player.getY(), this));
             }
@@ -246,9 +254,17 @@ public class GamePanel extends JPanel implements ActionListener {
                         public void run() {
                             if(running) {
                                 if(state==STATE.GAME) {
-                                    deathcontroler.set();
+                                    try {
+                                        deathcontroler.set();
+                                    } catch (IOException ioException) {
+                                        ioException.printStackTrace();
+                                    }
                                     player.set();
-                                    ballcontroler.set();
+                                    try {
+                                        ballcontroler.set();
+                                    } catch (IOException ioException) {
+                                        ioException.printStackTrace();
+                                    }
                                     controler.set();
                                 }else if(state==STATE.QUIT){
                                     running=false;
@@ -273,10 +289,10 @@ public class GamePanel extends JPanel implements ActionListener {
     public void keyReleased(KeyEvent e){
         if(state==STATE.GAME) {
             if (e.getKeyChar() == 'a') player.setKeyLeft(false);
-            if (e.getKeyChar() == ' ') player.setKeyUp(false);
+            if (e.getKeyChar() == 'w') player.setKeyUp(false);
             if (e.getKeyChar() == 's') player.setKeyDown(false);
             if (e.getKeyChar() == 'd') player.setKeyRight(false);
-            if (e.getKeyChar() == 'w') controler.setKeySpace(false);
+            if (e.getKeyChar() == ' ') controler.setKeySpace(false);
         }
     }
     @Override
@@ -402,9 +418,11 @@ public class GamePanel extends JPanel implements ActionListener {
      *
      */
 
-    public void SwitchLevel(){
+    public void SwitchLevel() throws IOException {
+        if(Lives==3){
+            score=score+1000;
+        }
         ClearLevel();
-                if(stateserver==STATESERVER.LOCAL) {
                     try {
                         level = new Level(Level_Number);
                     } catch (FileNotFoundException e) {
@@ -412,21 +430,17 @@ public class GamePanel extends JPanel implements ActionListener {
                     }
 
                     setVariables();
-                }else if(stateserver==STATESERVER.SERVER) {
-                    try {
-                        client.LevelNumberSender(this);
-                        client.Reciever();
-                    } catch (IOException | ClassNotFoundException e) {
-                        System.out.println("Bład połączenia");
-                    }
-                    setVariablesfromSever();
-                }
                 player = new Player(Player_position_x, PLayer_position_y, this);
                 controler =new BulletController(this);
                 ballcontroler=new BallController(this,controler);
-                deathcontroler=new DeathController(this,ballcontroler,player);
+                deathcontroler=new DeathController(this,ballcontroler,player,client);
                 levelbuilder=new LevelBuilder(this,walls);
                 levelbuilder.Level(Level_Number);
+                if(Level_Number==3 && ballcontroler.getBall().size()==0){
+                    running=false;
+                    JOptionPane.showMessageDialog(this, "Congratulations! You have just ended the game!");
+                    new Leaderboard(this);
+                }
 
     }
 
@@ -445,21 +459,11 @@ public class GamePanel extends JPanel implements ActionListener {
                     }
 
                     setVariables();
-                } else if (stateserver == STATESERVER.SERVER) {
-                    try {
-                        client.LevelNumberSender(this);
-                        client.Reciever();
-                        System.out.println(Number_of_Balls);
-                    } catch (IOException | ClassNotFoundException e) {
-                        System.out.println("Bład połączenia");
-                    }
-                    setVariablesfromSever();
-
                 }
                 player = new Player(Player_position_x, PLayer_position_y, this);
             controler = new BulletController(this);
             ballcontroler = new BallController(this, controler);
-            deathcontroler = new DeathController(this, ballcontroler, player);
+            deathcontroler = new DeathController(this, ballcontroler, player, client);
             levelbuilder = new LevelBuilder(this, walls);
             levelbuilder.Level(Level_Number);
 
@@ -668,4 +672,5 @@ public class GamePanel extends JPanel implements ActionListener {
     public int getStart_height(){return config.getStart_height();}
 
     public int getText_start_percents() { return config.getText_start_percents(); }
+
 }

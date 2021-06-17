@@ -2,8 +2,10 @@ package Game;
 
 import com.game.GUI.GamePanel;
 import com.game.GUI.Leaderboard;
+import com.game.GUI.LeaderboardBody;
 
 import javax.swing.*;
+import java.io.IOException;
 
 /**
  * class controls death (and removing) objects from board
@@ -15,18 +17,20 @@ public class DeathController {
     private BallController ball;
     private Ball tempball;
     private Player player;
-
-    public DeathController(GamePanel panel, BallController ball, Player player){
+    private Client client;
+    private Leaderboard leaderboard;
+    public DeathController(GamePanel panel, BallController ball, Player player,Client client){
         this.ball=ball;
         this.panel=panel;
         this.player=player;
+        this.client=client;
     }
 
     /**
      * function controls death (and removing) objects from board
      *
      */
-    public void set(){
+    public void set() throws IOException {
         for(int i=0; i<ball.getBall().size();i++) {
             tempball = ball.getBall().get(i);
            tempball.hitBox.x -= tempball.getXspeed();

@@ -61,6 +61,8 @@ public class LevelBuilder {
             for (int i = 0; i < panel.getWalls_maxY(); i += panel.getWall_width()) {
                 walls.add(new Wall(panel.getWalls_X2(), i, panel.getWall_width(), panel.getWall_height()));
             }
+            walls.add(new Wall( panel.getWall_width()+250,panel.getWalls_Y()-200,panel.getWall_width(), panel.getWall_height()));
+            walls.add(new Wall(panel.getWall_width()+750,panel.getWalls_Y()-200,panel.getWall_width(), panel.getWall_height()));
         }
     }
 }

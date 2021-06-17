@@ -4,6 +4,7 @@ import com.game.GUI.GamePanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.LinkedList;
 
 /**
@@ -47,7 +48,7 @@ public class BallController {
      *
      */
 
-    public void set(){
+    public void set() throws IOException {
 
         for(int i=0; i<ball.size();i++){
             tempball = ball.get(i);

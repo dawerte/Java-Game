@@ -1,6 +1,8 @@
 package Game;
 
 import com.game.GUI.GamePanel;
+import com.game.GUI.LeaderboardArray;
+import com.game.GUI.LeaderboardBody;
 
 import java.io.*;
 import java.net.Socket;
@@ -16,7 +18,7 @@ public class Client {
     private int Level_Number;
     private int ballsize;
     private Socket s;
-    public Client(GamePanel panel) throws IOException, ClassNotFoundException {
+    public Client() throws IOException, ClassNotFoundException {
         s= new Socket("127.0.0.1", 4999);
 
 
@@ -35,9 +37,14 @@ public class Client {
 
     public void LevelNumberSender(GamePanel panel) throws IOException {
         Level_Number=panel.getLevel_Number();
+        ballsize=panel.getBallcontroler().getBall().size();
+        System.out.println(ballsize);
+        System.out.println(Level_Number);
         ObjectOutputStream op=new ObjectOutputStream((s.getOutputStream()));
         op.writeObject(Level_Number);
         op.writeObject(ballsize);
+        op.flush();
+
     }
 
     /**
@@ -53,6 +60,12 @@ public class Client {
         array=(int[])in.readObject();
     }
 
+    public void LeaderboardSender(LeaderboardBody leaderboard) throws IOException {
+        ObjectOutputStream op=new ObjectOutputStream((s.getOutputStream()));
+        op.writeObject(leaderboard.getNicknames());
+        op.writeObject(leaderboard.getScores());
+        op.flush();
+    }
     public int[] getArray() {
         return array;
     }

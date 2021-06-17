@@ -2,6 +2,7 @@ package Game;
 
 import com.game.GUI.GamePanel;
 
+import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -40,6 +41,7 @@ public class MouseInput implements MouseListener {
      */
         if(mx >=(panel.getWindow_width()/2-300)*panel.getScalex() && mx <panel.getWindow_width()/2+300*panel.getScalex()){
             if(my >= 200*panel.getScaley() && my<300*panel.getScaley()){
+                JOptionPane.showMessageDialog(panel, "A- move left, D- move right, Space - shoot,W - jump ");
                 panel.setState(panel.getStateGame());
             }
             if(my >= 575*panel.getScaley() && my<675*panel.getScaley()){

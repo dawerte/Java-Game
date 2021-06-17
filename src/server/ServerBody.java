@@ -6,6 +6,7 @@ import com.game.GUI.GamePanel;
 import java.io.*;
 import java.lang.reflect.Array;
 import java.net.Socket;
+import java.util.ArrayList;
 
 /**
  * class server body, determining all important informations
@@ -50,37 +51,50 @@ public class ServerBody extends Thread {
     private int Ball_startX;
     private int Ball_startY;
 
-    private int Ballsize;
-    private int Lives;
+    private int Ballsize=1;
+    private ArrayList<Integer> scores;
+    private ArrayList<String> nicknames;
 
     private Socket socket;
 
     private int[] array;
-    private int[] makeLives;
      ServerBody(Socket socket) {
          this.socket = socket;
      }
      @Override
      public void run(){
-         try {
-             config = new ServerConfig();
-         } catch (
-                 IOException e) {
-             System.out.println("Błąd odczytu danych");
-         }
-         try {
-             level = new ServerLevel();
-         } catch (IOException e) {
-             System.out.println("Błąd odczytu danych");
-         }
-         setVariables();
-         try{
-             Sending();
-         }catch(IOException e){
+             try {
+                 config = new ServerConfig();
+             } catch (
+                     IOException e) {
+                 System.out.println("Błąd odczytu danych");
+             }
+             try {
+                 level = new ServerLevel();
+             } catch (IOException e) {
+                 System.out.println("Błąd odczytu danych");
+             }
+             setVariables();
+             try {
+                 Sending();
+             } catch (IOException e) {
+                 System.out.println("Brak połączenia");
+             }
+             try {
+                 RecivingtoSwap();
+             } catch (IOException e) {
+                 System.out.println("Brak połączenia");
+             } catch (ClassNotFoundException e) {
+                 System.out.println("Brak klasy");
+             }
+            try {
+             RecivingLeaderboard();
+            } catch (IOException e) {
              System.out.println("Brak połączenia");
-         }
-         SwapLevels();
-     }
+            } catch (ClassNotFoundException e) {
+             System.out.println("Brak klasy");
+            }
+            }
     private void setVariables(){
         Window_width = config.getWindow_width();
         Window_height = config.getWindow_height();
@@ -167,43 +181,43 @@ public class ServerBody extends Thread {
 
     /**
      * function receiving level number
-     * @param socket
      * @throws IOException
      * @throws ClassNotFoundException
      */
 
-    public void RecivingtoSwap(Socket socket) throws IOException, ClassNotFoundException {
+    public void RecivingtoSwap() throws IOException, ClassNotFoundException {
 
         ObjectInputStream in= new ObjectInputStream(socket.getInputStream());
         Level_Number=(int)in.readObject();
         Ballsize=(int)in.readObject();
+        System.out.println(Level_Number);
+        System.out.println(Ballsize);
     }
+    public void RecivingLeaderboard() throws IOException, ClassNotFoundException {
 
+        ObjectInputStream in= new ObjectInputStream(socket.getInputStream());
+        scores=(ArrayList<Integer>) in.readObject();
+        nicknames=(ArrayList<String>) in.readObject();
+        System.out.println(Level_Number);
+        System.out.println(Ballsize);
+    }
     /**
      * function switches levels
      *
      */
 
     public void SwapLevels() {
-        try{
-            RecivingtoSwap(this.socket);
-        }catch(IOException e){
-            System.out.println("Brak połączenia");
-        }catch(ClassNotFoundException e) {
-            System.out.println("Brak klasy");
-        }
-        if(Ballsize==0) {
+       if(Ballsize==0) {
                     try {
                         level = new ServerLevel(Level_Number);
-                        System.out.println(Level_Number);
                         setVariables();
-                        System.out.println(Level_Number);
                         Sending();
                     } catch (FileNotFoundException e) {
                         System.out.println("Bład wczytywania");
                     } catch (IOException e) {
                         System.out.println("Bład połączenia");
                     }
+            System.out.println(4);
         }
     }
     public void RestartLevel(){
