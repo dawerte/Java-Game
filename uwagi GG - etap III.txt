@@ -1,6 +1,0 @@
-
-Nadal brak plików do kompilacji i uruchomienia programu poza IDE - muszę sam szukać klasy do uruchomienia :-(
-
-ale animacja jest - etap zaliczony.
-
-PS. Jak można w ogóle sterować i strzelać przycikami A-D-W ?????
